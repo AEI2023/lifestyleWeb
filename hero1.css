@@ -1,0 +1,326 @@
+
+/*FUENTE*/
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat&display=swap');
+
+/*VARIABLES*/
+:root {
+    --amarillo: #ffd323;
+    --azul: #002a4b;
+    --blanco: #fff;
+    --fuenteBase: 'Montserrat', sans-serif;
+    --fuenteHero:'Archivo Black', sans-serif;
+}
+/*RESET*/
+* {
+    min-width: 0;
+    font: inherit;
+    }
+    
+    *,*::before,*::after {
+    box-sizing: border-box;
+    }
+    
+    img,video,svg {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    }
+    
+    body {
+    margin: 0;
+    min-height: 100dvh;
+    }
+    
+    h1,h2.h3,h4,h5,h6 {text-wrap: balance;}
+    
+    p {text-wrap: pretty;}
+    
+    ul[role='list'], ol[role='list']{
+        list-style: none; /* Turn off numbered and unordered list decoration */
+    }
+    
+    html:focus-within{
+        scroll-behavior: smooth; /* Make the scrolling inside of any scrollable element smooth */
+    }
+    
+    a:not([class]){
+        text-decoration-skip-ink: auto; /* Makes link undelines look better */
+    }
+    
+    input, button, textarea, select{
+        font: inherit; /* Makes these elements inherit fonts */
+    }
+    
+    /* Turns off animation for people who don't want to see them */
+    @media (prefers-reduced-motion: reduce){
+        html:focus-within {
+            scroll-behavior: auto;
+        }
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+            transition: none;
+        }
+    }
+    
+    body, html{
+        height: auto; /* 100% Makes the body element full screen */
+        scroll-behavior: smooth; /* Makes normal scrolling smooth */
+    }
+
+
+/*APP*/
+
+header {
+    background: var(--amarillo);
+    padding: 30px 50px;
+}
+
+header, .menu-search, header .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    
+}
+
+header .logo img {
+    height: auto;
+    width: 160px;
+    object-fit: contain;
+}
+
+header .menu-search {
+    gap: 2rem;
+}
+
+header .menu {
+    gap: 1rem;
+    padding: 10px;    
+    margin-right: 1rem;
+
+}
+header .menu a {
+    font-family: var(--fuenteBase);
+    color: var(--azul);
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 5px;
+}
+
+header .search {
+    
+   
+   
+
+}
+
+header form {
+    border: 3px solid var(--azul);
+    padding: 5px 0;
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header form input {
+    padding: 10px;
+    border-radius: 0px 50px 50px 0px;
+}
+header form input::placeholder {
+    font-family: var(--fuenteBase);
+}
+header form input,
+header form button {
+    border: none;
+    height: 35px;
+    background: var(--amarillo);
+}
+header form button {
+    width: 50px;
+    border-radius: 50px 0px 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid var(--azul);
+
+}
+
+header .search img {
+    width: 23px;
+    height: 23px;
+    
+    transform:  translateX(3px);
+}
+
+.hero {
+    background: var(--amarillo);
+    height: 90vh;
+    padding: 30px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+.imageHero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageHero .fixedImage {
+    width: 450px;
+    height: 450px;
+    object-fit: contain;
+    z-index: 3;
+    opacity:0;
+    transform: translateX(-10px);
+    transition: all 1s ease-in-out;
+}
+.imageHero .animatedImage {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: calc( 50% - 200px);
+    left: calc( 50% - 200px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    animation: floatAnimation 5s infinite ease-in-out;
+}
+@keyframes floatAnimation {
+    0%{ transform: translateY(0);}
+    50%{ transform: translateY(-20px);}
+    100%{ transform: translateY(0);}
+}
+.titleHero {
+    
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 50px;
+}
+.titleHero h1 {
+    position: relative;
+    display: block;    
+    font-size: 50px;
+    font-family: var(--fuenteHero);
+    text-align: right;
+    line-height: 1;
+    color: var(--azul);
+    span {
+        display: block;
+        color: #fff;
+    }
+}
+.titleHero p {
+    font-family: var(--fuenteBase);
+    color: var(--azul);
+    text-align: right;
+
+}
+button.btnHero {
+    background: var(--azul);
+    border-radius: 50px;
+    border: none;
+    color: var(--amarillo);
+    font-family: var(--fuenteBase);
+    font-size: 15px;
+    padding: 10px 20px;
+}
+
+/*Decorative elements*/
+.decorativeImage {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 1s ease-in-out;
+}
+
+.ladder {
+    width: 150px;
+    top: 40px;
+    right: 0px;
+}
+
+.snake {
+    width: 100px;
+    bottom: 120px;
+    left: calc(50% - 50px);
+}
+
+.circleGrid1,
+.circleGrid2 {width: 80px;}
+.circleGrid1 {
+    top: 50px;
+    left: 50%;    
+}
+
+.circleGrid2 {
+    bottom: 30px;
+    right: 320px;
+}
+
+.circleGrid3 {
+    width: 35px;
+    top: calc(50% - 13px);
+    left: 40px;
+}
+
+.circle1,
+.circle2 {width: 270px;}
+
+.circle1 {
+    bottom: 0px;
+    left: -100px;
+    height: 150px;
+    object-fit: cover;
+    object-position: top;
+}
+.circle2 {
+    top:-260px;
+    left:320px;
+}
+
+/* random decorative triangles */
+.triangle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    transform-origin: center center;
+    background-size: contain;
+    opacity: 0;
+    animation: appearTriangles 1.5s forwards;
+}
+
+@keyframes appearTriangles {
+    from {
+        opacity:0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    background: #111;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+footer p {
+    color: #fff;
+    padding: 0;
+    font-family: var(--fuenteBase);
+}
