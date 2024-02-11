@@ -58,5 +58,10 @@ const updateHeightBanner = () => {
     banner.style.height = `${newHeightHero}px`;
 }
 
-window.onload = updateHeightBanner
-window.onresize = updateHeightBanner
+window.onload = updateHeightBanner;
+window.onresize = updateHeightBanner;
+dqs('.iconSearch').addEventListener('click', () => {dqs('.search').classList.toggle('open');});
+dqs('.burger').addEventListener('click', () => {
+    dqs('.burger').classList.toggle('open');
+    dqs('.menu').classList.toggle('open');
+});
